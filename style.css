@@ -82,7 +82,7 @@ header p {
   border-radius: 16px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
   padding: 2rem;
-  min-width: 320px;
+  min-width: 0px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -220,13 +220,21 @@ footer a:hover {
   .content-wrapper {
     flex-direction: column;
     align-items: center;
+    max-width: 100%;     /* allow full width */
+    padding: 0 1rem;     /* smaller padding for mobile */
   }
 
   .content-wrapper section {
-    width: 90%;
-    margin-bottom: 1.5rem;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 600px;    /* optional cap for readability */
+    min-width: 0;        /* prevent overflow */
+    margin: 0 auto 1.5rem;
+    padding: 1.25rem;    /* less padding inside boxes */
   }
 }
+
+
 
 @media (max-width: 700px) {
   header {
