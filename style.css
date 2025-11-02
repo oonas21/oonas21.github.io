@@ -19,7 +19,7 @@ body {
 header {
   text-align: center;
   padding: 2.5rem 1rem 2rem; /* compact height */
-  background: linear-gradient(135deg, #88e0a5, #5cc6a3); /* slightly richer gradient */
+  background: linear-gradient(135deg, #88bde0ff, #5c8fc6ff); /* slightly richer gradient */
   color: #1e293b; /* same dark text tone as the body for consistency */
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
@@ -97,7 +97,7 @@ section h2 {
   margin: 1rem 0 1.25rem;
   color: #334155;
   display: inline-block;
-  border-bottom: 4px solid #7ed7b8;
+  border-bottom: 4px solid #5c8fc6ff;
   padding-bottom: 0.2rem;
 }
 
@@ -106,7 +106,7 @@ section h3 {
   margin: 1.5rem 0 0.75rem;
   color: #3b4b5f;
   display: inline-block;
-  border-bottom: 3px solid #7ed7b8;
+  border-bottom: 3px solid #5c8fc6ff;
   padding-bottom: 0.15rem;
 }
 
@@ -143,17 +143,17 @@ section h3 {
 
 /* Slightly different accent colors per section */
 #about h2 {
-  border-bottom-color: #7ed7b8;
+  border-bottom-color: #5c8fc6ff;
 }
 #projects h2 {
-  border-bottom-color: #7ed7b8;
+  border-bottom-color: #5c8fc6ff;
 }
 
 /* ===== About Section ===== */
 #about p {
   font-size: 1.1rem;
   color: #475569;
-  max-width: 700px;
+  max-width: 500px;
   margin: 0.75rem auto;
   line-height: 1.8;
 }
@@ -171,7 +171,7 @@ section h3 {
   border-radius: 16px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  max-width: 700px;
+  max-width: 500px;
 }
 
 #projects li:hover {
@@ -180,7 +180,7 @@ section h3 {
 }
 
 #projects a {
-  color: #10b981; /* emerald */
+  color: #5c8fc6ff; /* emerald */
   font-weight: 600;
   font-size: 1.05rem;
   text-decoration: none;
@@ -188,7 +188,7 @@ section h3 {
 }
 
 #projects a:hover {
-  color: #059669;
+  color: #5c8fc6ff;
   text-decoration: underline;
 }
 
@@ -204,33 +204,31 @@ footer {
 }
 
 footer a {
-  color: #10b981;
+  color: #5c8fc6ff;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 footer a:hover {
-  color: #059669;
+  color: #5c8fc6ff;
   text-decoration: underline;
 }
 
 /* ===== Responsive Design ===== */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
+  /* When screen is narrow, stack vertically and reorder */
   .content-wrapper {
     flex-direction: column;
-    align-items: center;
-    max-width: 100%;     /* allow full width */
-    padding: 0 1rem;     /* smaller padding for mobile */
   }
 
+
+  /* Optional: make sure they take full width nicely */
   .content-wrapper section {
     flex: 1 1 100%;
+    max-width: 600px;
     width: 100%;
-    max-width: 600px;    /* optional cap for readability */
-    min-width: 0;        /* prevent overflow */
     margin: 0 auto 1.5rem;
-    padding: 1.25rem;    /* less padding inside boxes */
   }
 }
 
@@ -257,3 +255,4 @@ footer a:hover {
     height: 140px;
   }
 }
+
