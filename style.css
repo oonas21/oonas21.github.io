@@ -27,13 +27,16 @@ header {
 }
 
 .profile-pic {
-  width: 150px;            /* bigger image */
-  height: 150px;
-  border-radius: 50%;      /* circular shape */
-  object-fit: cover;       /* fills circle nicely */
-  border: 3px solid #ccc;  /* optional border */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0); /* force GPU crisp rendering */
 }
+
 
 .header-text h1 {
   margin: 0;
@@ -106,6 +109,37 @@ section h3 {
   border-bottom: 3px solid #7ed7b8;
   padding-bottom: 0.15rem;
 }
+
+.hobby-gallery {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;        /* enables horizontal scrolling */
+  scroll-behavior: smooth; /* smooth scroll */
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+.hobby-item {
+  flex: 0 0 auto;
+  width: 165px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: 50% 60%; /* center horizontally, shift vertically if needed */
+}
+
+/* Optional: hide scrollbar in a pretty way */
+.hobby-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+.hobby-gallery::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+.hobby-gallery::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
 
 /* Slightly different accent colors per section */
 #about h2 {
