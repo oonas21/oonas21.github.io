@@ -26,6 +26,26 @@ header {
   font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+.profile-pic {
+  width: 150px;            /* bigger image */
+  height: 150px;
+  border-radius: 50%;      /* circular shape */
+  object-fit: cover;       /* fills circle nicely */
+  border: 3px solid #ccc;  /* optional border */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2.2em;
+}
+
+.header-text p {
+  margin: 5px 0 0 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
 header h1 {
   font-size: 2rem;
   font-weight: 600;
@@ -189,5 +209,9 @@ footer a:hover {
 
   #projects li {
     padding: 1rem 1.25rem;
+  }
+  .profile-pic {
+    width: 140px;
+    height: 140px;
   }
 }
