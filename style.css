@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #f8fafc;
@@ -18,9 +23,9 @@ body {
 /* ===== Header ===== */
 header {
   text-align: center;
-  padding: 2.5rem 1rem 2rem; /* compact height */
-  background: linear-gradient(135deg, #88bde0ff, #5c8fc6ff); /* slightly richer gradient */
-  color: #1e293b; /* same dark text tone as the body for consistency */
+  padding: 2.5rem 1rem 2rem;
+  background: linear-gradient(135deg, #88bde0ff, #5c8fc6ff);
+  color: #1e293b;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -34,9 +39,8 @@ header {
   border: 2px solid #ccc;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  transform: translateZ(0); /* force GPU crisp rendering */
+  transform: translateZ(0);
 }
-
 
 .header-text h1 {
   margin: 0;
@@ -77,7 +81,7 @@ header p {
 }
 
 .content-wrapper section {
-  flex: 1 1 45%;
+  flex: 1 1 500px; /* better responsive behavior */
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
@@ -110,11 +114,12 @@ section h3 {
   padding-bottom: 0.15rem;
 }
 
+/* ===== Hobby Gallery ===== */
 .hobby-gallery {
   display: flex;
   gap: 15px;
-  overflow-x: auto;        /* enables horizontal scrolling */
-  scroll-behavior: smooth; /* smooth scroll */
+  overflow-x: auto;
+  scroll-behavior: smooth;
   padding: 10px 0;
   margin-top: 10px;
 }
@@ -125,10 +130,10 @@ section h3 {
   height: 300px;
   border-radius: 10px;
   object-fit: cover;
-  object-position: 50% 60%; /* center horizontally, shift vertically if needed */
+  object-position: 50% 60%;
 }
 
-/* Optional: hide scrollbar in a pretty way */
+/* Hide scrollbar nicely */
 .hobby-gallery::-webkit-scrollbar {
   height: 8px;
 }
@@ -140,11 +145,8 @@ section h3 {
   background-color: transparent;
 }
 
-
-/* Slightly different accent colors per section */
-#about h2 {
-  border-bottom-color: #5c8fc6ff;
-}
+/* Accent colors */
+#about h2,
 #projects h2 {
   border-bottom-color: #5c8fc6ff;
 }
@@ -180,7 +182,7 @@ section h3 {
 }
 
 #projects a {
-  color: #5c8fc6ff; /* emerald */
+  color: #5c8fc6ff;
   font-weight: 600;
   font-size: 1.05rem;
   text-decoration: none;
@@ -215,24 +217,53 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* ===== Responsive Design ===== */
-@media (max-width: 1000px) {
-  /* When screen is narrow, stack vertically and reorder */
+/* ===== Tablet breakpoint ===== */
+@media (max-width: 900px) {
   .content-wrapper {
     flex-direction: column;
+    align-items: center;
   }
 
-
-  /* Optional: make sure they take full width nicely */
   .content-wrapper section {
     flex: 1 1 100%;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
-    margin: 0 auto 1.5rem;
   }
 }
 
+/* ===== Responsive Design ===== */
+@media (max-width: 600px) {
+  .content-wrapper {
+    padding: 0 1rem;
+  }
 
+  .content-wrapper section {
+    flex: 1 1 100%;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .hobby-item {
+    width: 45%;
+    max-width: 180px;
+    height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .hobby-gallery {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hobby-item {
+    width: 100%;
+    max-width: 300px;
+  }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.1rem; }
+  p  { font-size: 1rem; }
+}
 
 @media (max-width: 700px) {
   header {
@@ -250,9 +281,9 @@ footer a:hover {
   #projects li {
     padding: 1rem 1.25rem;
   }
+
   .profile-pic {
     width: 140px;
     height: 140px;
   }
 }
-
